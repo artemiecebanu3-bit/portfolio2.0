@@ -1,0 +1,48 @@
+/* Общие стили для стрелок */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный круг/квадрат */
+    color: #fff;
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 24px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+    z-index: 100; /* Чтобы были точно поверх фото */
+}
+
+/* Эффект при наведении */
+.nav-arrow:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Левая стрелка */
+.prev-overlay {
+    left: 20px;
+}
+
+/* Правая стрелка */
+.next-overlay {
+    right: 20px;
+}
+
+/* Стили для мобилок, чтобы стрелки не перекрывали весь экран */
+@media (max-width: 768px) {
+    .nav-arrow {
+        font-size: 18px;
+        padding: 10px 14px;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    .prev-overlay {
+        left: 10px;
+    }
+    .next-overlay {
+        right: 10px;
+    }
+}

@@ -60,12 +60,13 @@
 
 
 .fullscreen-overlay {
+    touch-action: manipulation;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(8, 8, 8, 0.98);
+    background-color: rgba(0, 0, 0, 0.98);
     z-index: 99999;
     border: none;       
     padding: 0;
@@ -77,7 +78,9 @@
 
 .fullscreen-overlay[open] {
     display: block;
-    background-color: rgba(8, 8, 8, 0.98);
+    background-color:  rgba(22, 22, 23, 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); 
 }
 
 .overlay-close-area {
@@ -90,14 +93,15 @@
 }
 
 .fullscreen-overlay img {
+    touch-action: manipulation;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1); 
     z-index: 2;
-    max-width: 90vw;  
-    max-height: 80vh; 
-    width: auto;
+    max-width: 600px;  
+    max-height: 70vh; 
+    width: 75%;
     height: auto;
     object-fit: contain;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
@@ -105,18 +109,35 @@
 
 
 .close-overlay {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    color: #ffffff;
-    font-size: 36px;
-    cursor: pointer; 
-    opacity: 0.5;
-    z-index: 3;
-    padding: 10px; 
-    transition: opacity 0.2s ease;
-}
+    position: fixed; 
+    top: 16px;        /* Чуть-чуть опустили от самого края экрана, чтобы не мешать системным индикаторам */
+    right: 16px;
+    background: transparent; /* Явно говорим, что фон прозрачный, но он ЕСТЬ */
+    border: none;
+    color: #fff;
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+    
+    /* Поднимаем над абсолютно всеми элементами */
+    z-index: 100002 !important; 
 
+    /* Фиксированная область клика — идеальный квадрат для пальца */
+    width: 52px;
+    height: 52px;
+    
+    /* Центрируем крестик внутри */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Сбрасываем эффекты мобильных браузеров */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    
+    /* КРИТИЧНО ДЛЯ МОБИЛОК: заставляем браузер воспринимать блок как активную зону для клика */
+    pointer-events: auto !important; 
+}
 @media (hover: hover) {
     .close-overlay:hover {
         opacity: 1;
@@ -132,5 +153,8 @@
         top: 30px;
         right: 40px;
         font-size: 32px;
+        /* На дескрипторах сохраняем ту же удобную квадратную область */
+        width: 52px;
+        height: 52px;
     }
 }

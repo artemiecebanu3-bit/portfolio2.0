@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/apple-animations.css">
     <link rel="stylesheet" href="css/animationsoverlay.css">
+    <link rel="stylesheet" href="css/buttonpages.css">
 </head>
 <body class="apple-fade-in">
     
@@ -30,63 +31,46 @@
     </div>
 
     <dialog class="fullscreen-overlay apple-fade-in1" id="img15">
+        <button class="nav-arrow prev-overlay">&lsaquo;</button>
+        <button class="nav-arrow next-overlay">&rsaquo;</button>
         <a href="#" class="overlay-close-area"></a>
-        <a href="#" class="close-overlay">&times;</a>
+        <button class="close-overlay">&times;</button>
         <img src="image/IMG_15.jpg" alt="ferrari">
     </dialog>
     
     <dialog class="fullscreen-overlay apple-fade-in1" id="img14">
+        <button class="nav-arrow prev-overlay">&lsaquo;</button>
+        <button class="nav-arrow next-overlay">&rsaquo;</button>
         <a href="#" class="overlay-close-area"></a>
-        <a href="#" class="close-overlay">&times;</a>
+        <button class="close-overlay">&times;</button>
         <img src="image/IMG_14.jpg" alt="ferrari">
     </dialog>
 
     <dialog class="fullscreen-overlay apple-fade-in1" id="img18">
+        <button class="nav-arrow prev-overlay">&lsaquo;</button>
+        <button class="nav-arrow next-overlay">&rsaquo;</button>
         <a href="#" class="overlay-close-area"></a>
-        <a href="#" class="close-overlay">&times;</a>
+        <button class="close-overlay">&times;</button>
         <img src="image/IMG_18.jpg" alt="ferrari">
     </dialog>
     
     <dialog class="fullscreen-overlay apple-fade-in1" id="img13">
+        <button class="nav-arrow prev-overlay">&lsaquo;</button>
+        <button class="nav-arrow next-overlay">&rsaquo;</button>
         <a href="#" class="overlay-close-area"></a>
-        <a href="#" class="close-overlay">&times;</a>
+        <button class="close-overlay">&times;</button>
         <img src="image/IMG_13.jpg" alt="ferrari">
     </dialog>
 
     <dialog class="fullscreen-overlay apple-fade-in1" id="img16">
+        <button class="nav-arrow prev-overlay">&lsaquo;</button>
+        <button class="nav-arrow next-overlay">&rsaquo;</button>
         <a href="#" class="overlay-close-area"></a>
-        <a href="#" class="close-overlay">&times;</a>
+        <button class="close-overlay">&times;</button>
         <img src="image/IMG_16.jpg" alt="ferrari">
     </dialog>
 
-
-    <script>
-        
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                const link = item.closest('a') || item.querySelector('a');
-                if (link) {
-                    const href = link.getAttribute('href');
-                    if (href && href.startsWith('#')) {
-                        const targetId = href.replace('#', '');
-                        const dialog = document.getElementById(targetId);
-                        if (dialog && dialog.tagName === 'DIALOG') {
-                            e.preventDefault(); 
-                            dialog.showModal(); 
-                        }
-                    }
-                }
-            });
-        });
-
-        document.querySelectorAll('dialog.fullscreen-overlay').forEach(dialog => {
-            dialog.addEventListener('click', (e) => {
-                if (e.target.classList.contains('close-overlay') || e.target.classList.contains('overlay-close-area')) {
-                    dialog.close();
-                }
-            });
-        });
-    </script>
+<script src="java/java.js"></script>
 
 </body>
 </html>
