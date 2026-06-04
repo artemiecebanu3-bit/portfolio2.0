@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW E38 | Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/apple-animations.css">
+    <link rel="stylesheet" href="css/animationsoverlay.css">
+</head>
+<body class="apple-fade-in">
+
+    <nav class="top-bar apple-fade-up">
+        <a href="home.html" class="logo">kayzzeen</a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item">Home</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <main class="project-gallery">
+            <a href="#img7" class="gallery-item"><img src="image/IMG_7.jpg" alt="BMW E38" style="object-position: center 65%;"></a>
+            <a href="#img8" class="gallery-item"><img src="image/IMG_8.jpg" alt="BMW E38"></a>
+            <a href="#img9" class="gallery-item"><img src="image/IMG_9.jpg" alt="BMW E38"></a>
+            <a href="#img10" class="gallery-item"><img src="image/IMG_10.jpg" alt="BMW E38"></a>
+            <a href="#img11" class="gallery-item"><img src="image/IMG_11.jpg" alt="BMW E38" style="object-position: center 63%;"></a>
+            <a href="#img12" class="gallery-item"><img src="image/IMG_12.jpg" alt="BMW E38" style="object-position: center 69%;"></a>
+        </main>
+    </div>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img7">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_7.jpg" alt="BMW E38">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img8">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_8.jpg" alt="BMW E38">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img9">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_9.jpg" alt="BMW E38">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img10">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_10.jpg" alt="BMW E38">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img11">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_11.jpg" alt="BMW E38">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img12">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_12.jpg" alt="BMW E38">
+    </dialog>
+
+    <script>
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const link = item.closest('a') || item.querySelector('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        const targetId = href.replace('#', '');
+                        const dialog = document.getElementById(targetId);
+                        
+                        if (dialog && dialog.tagName === 'DIALOG') {
+                            e.preventDefault(); 
+                            dialog.showModal();
+                        }
+                    }
+                }
+            });
+        });
+        document.querySelectorAll('dialog.fullscreen-overlay').forEach(dialog => {
+            dialog.addEventListener('click', (e) => {
+                if (e.target.classList.contains('close-overlay') || e.target.classList.contains('overlay-close-area')) {
+                    dialog.close();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

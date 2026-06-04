@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ferrari</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/apple-animations.css">
+    <link rel="stylesheet" href="css/animationsoverlay.css">
+</head>
+<body class="apple-fade-in">
+    
+<nav class="top-bar apple-fade-up">
+        <a href="home.html" class="logo">kayzzeen</a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item">Home</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <main class="project-gallery">
+            <a href="#img15" class="gallery-item wide-card"><img src="image/IMG_15.jpg" alt="ferrari"></a>
+            <a href="#img14" class="gallery-item"><img src="image/IMG_14.jpg" alt="ferrari"></a>
+            <a href="#img18" class="gallery-item"><img src="image/IMG_18.jpg" alt="ferrari"></a>
+            <a href="#img13" class="gallery-item"><img src="image/IMG_13.jpg" alt="ferrari"></a>
+            <a href="#img16" class="gallery-item"><img src="image/IMG_16.jpg" alt="ferrari"></a>
+        </main>
+    </div>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img15">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_15.jpg" alt="ferrari">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img14">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_14.jpg" alt="ferrari">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img18">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_18.jpg" alt="ferrari">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img13">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_13.jpg" alt="ferrari">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img16">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_16.jpg" alt="ferrari">
+    </dialog>
+
+
+    <script>
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const link = item.closest('a') || item.querySelector('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        const targetId = href.replace('#', '');
+                        const dialog = document.getElementById(targetId);
+                        if (dialog && dialog.tagName === 'DIALOG') {
+                            e.preventDefault(); 
+                            dialog.showModal(); 
+                        }
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('dialog.fullscreen-overlay').forEach(dialog => {
+            dialog.addEventListener('click', (e) => {
+                if (e.target.classList.contains('close-overlay') || e.target.classList.contains('overlay-close-area')) {
+                    dialog.close();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

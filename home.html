@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/HomeCard.css"> 
+    <link rel="stylesheet" href="css/apple-animations.css">
+</head>
+<body class="apple-fade-in">
+
+    <nav class="top-bar apple-fade-up">
+        <a href="home.html" class="logo">kayzzeen</a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item active">Home</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="works-container">
+            
+            <a href="page1.html" class="work-card">
+                <div class="card-image-wrapper" data-text="BMW E38">
+                    <img src="image/IMG_12.jpg" alt="BMW E38 Cinematic">
+                </div>
+            </a>
+
+            <a href="page2.html" class="work-card">
+                <div class="card-image-wrapper" data-text="lamborghini huracan">
+                    <img src="image/IMG_5.jpg" alt="Lamborghini Huracan">
+                </div>
+            </a>
+
+
+            <a href="page4.html" class="work-card">
+                <div class="card-image-wrapper wide-card" data-text="Porsche 911 Sport Classic">
+                    <img src="image/IMG_20.jpg" alt="Porsche 911 Sport Classic">
+                </div>
+            </a>
+
+            <a href="page5.html" class="work-card">
+                <div class="card-image-wrapper wide-card" data-text="ferrari">
+                    <img src="image/IMG_15.jpg" alt="ferrari">
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+<script>
+        
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            const cards = document.querySelectorAll('.work-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!this.classList.contains('hover-active')) {
+                        e.preventDefault();
+                        cards.forEach(c => c.classList.remove('hover-active'));
+                        this.classList.add('hover-active'); 
+                    }
+                });
+            });
+        }
+    </script>
+
+
+</body>
+</html>

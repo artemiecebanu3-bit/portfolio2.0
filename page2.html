@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMBORGHINI HURACAN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/apple-animations.css">
+    <link rel="stylesheet" href="css/animationsoverlay.css">
+</head>
+<body class="apple-fade-in">
+
+    <nav class="top-bar apple-fade-up">
+        <a href="home.html" class="logo">kayzzeen</a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item">Home</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <main class="project-gallery">
+            <a href="#img5" class="gallery-item"><img src="image/IMG_5.jpg" alt="LAMBORGHINI" style="object-position: center 90%;"></a>
+            <a href="#img1" class="gallery-item"><img src="image/IMG_1.jpg" alt="LAMBORGHINI"></a>
+            <a href="#img2" class="gallery-item"><img src="image/IMG_2.jpg" alt="LAMBORGHINI"></a>
+            <a href="#img3" class="gallery-item"><img src="image/IMG_3.jpg" alt="LAMBORGHINI"></a>
+            <a href="#img4" class="gallery-item"><img src="image/IMG_4.jpg" alt="LAMBORGHINI"></a>
+            <a href="#img6" class="gallery-item"><img src="image/IMG_6.jpg" alt="LAMBORGHINI"></a>
+        </main>
+    </div>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img5">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_5.jpg" alt="LAMBORGHINI">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img1">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_1.jpg" alt="LAMBORGHINI">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img2">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_2.jpg" alt="LAMBORGHINI">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img3">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_3.jpg" alt="LAMBORGHINI">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img4">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_4.jpg" alt="LAMBORGHINI">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img6">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_6.jpg" alt="LAMBORGHINI">
+    </dialog>
+
+    <script>
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const link = item.closest('a') || item.querySelector('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        const targetId = href.replace('#', '');
+                        const dialog = document.getElementById(targetId);
+                        
+                        if (dialog && dialog.tagName === 'DIALOG') {
+                            e.preventDefault();
+                            dialog.showModal();
+                        }
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('dialog.fullscreen-overlay').forEach(dialog => {
+            dialog.addEventListener('click', (e) => {
+                if (e.target.classList.contains('close-overlay') || e.target.classList.contains('overlay-close-area')) {
+                    dialog.close();
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

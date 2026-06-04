@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche 911 Sport Classic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/apple-animations.css">
+    <link rel="stylesheet" href="css/animationsoverlay.css">
+</head>
+<body class="apple-fade-in">
+
+    <nav class="top-bar apple-fade-up">
+        <a href="home.html" class="logo">kayzzeen</a>
+        <div class="nav-links">
+            <a href="home.html" class="nav-item">Home</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <main class="project-gallery">
+            <a href="#img23" class="gallery-item"><img src="image/IMG_23.jpg" alt="Porsche 911 Sport Classic" style="object-position: center 63%;"></a>
+            <a href="#img19" class="gallery-item"><img src="image/IMG_19.jpg" alt="Porsche 911 Sport Classic"></a>
+            <a href="#img20" class="gallery-item wide-card"><img src="image/IMG_20.jpg" alt="Porsche 911 Sport Classic"></a>
+            <a href="#img22" class="gallery-item"><img src="image/IMG_22.jpg" alt="Porsche 911 Sport Classic"></a>
+            <a href="#img21" class="gallery-item"><img src="image/IMG_21.jpg" alt="Porsche 911 Sport Classic"></a>
+        </main>
+    </div>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img23">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_23.jpg" alt="Porsche 911 Sport Classic">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img19">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_19.jpg" alt="Porsche 911 Sport Classic">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img20">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_20.jpg" alt="Porsche 911 Sport Classic">
+    </dialog>
+    
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img22">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_22.jpg" alt="Porsche 911 Sport Classic">
+    </dialog>
+
+    <dialog class="fullscreen-overlay apple-fade-in1" id="img21">
+        <a href="#" class="overlay-close-area"></a>
+        <a href="#" class="close-overlay">&times;</a>
+        <img src="image/IMG_21.jpg" alt="Porsche 911 Sport Classic">
+    </dialog>
+
+
+    <script>
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const link = item.closest('a') || item.querySelector('a');
+                if (link) {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        const targetId = href.replace('#', '');
+                        const dialog = document.getElementById(targetId);
+                        if (dialog && dialog.tagName === 'DIALOG') {
+                            e.preventDefault(); 
+                            dialog.showModal(); 
+                        }
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('dialog.fullscreen-overlay').forEach(dialog => {
+            dialog.addEventListener('click', (e) => {
+                if (e.target.classList.contains('close-overlay') || e.target.classList.contains('overlay-close-area')) {
+                    dialog.close();
+                }
+            });
+        });
+    </script>
+    
+
+</body>
+</html>

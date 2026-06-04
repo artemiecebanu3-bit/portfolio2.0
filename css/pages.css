@@ -1,0 +1,136 @@
+
+.project-gallery {
+    max-width: 2000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px; 
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    padding-top: 140px; 
+    background-color: #131212;
+}
+
+@media (min-width: 768px) {
+    .project-gallery {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2; 
+    overflow: hidden;
+    background-color: #000;
+    display: block;
+}
+
+.wide-card {
+    grid-column: span 2; 
+    grid-row: span 2;    
+    aspect-ratio: auto;  
+}
+
+@media (max-width: 600px) {
+    .wide-card {
+        grid-column: span 2; 
+        grid-row: auto;      
+        aspect-ratio: 16 / 9;
+    }
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+    display: block;
+}
+
+@media (hover: hover) {
+    .gallery-item img {
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .gallery-item:hover img {
+        transform: scale(1.03); 
+    }
+}
+
+
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(8, 8, 8, 0.98);
+    z-index: 99999;
+    border: none;       
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;  
+    max-height: 100vh;
+    background: transparent; 
+}
+
+.fullscreen-overlay[open] {
+    display: block;
+    background-color: rgba(8, 8, 8, 0.98);
+}
+
+.overlay-close-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.fullscreen-overlay img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); 
+    z-index: 2;
+    max-width: 90vw;  
+    max-height: 80vh; 
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+
+.close-overlay {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #ffffff;
+    font-size: 36px;
+    cursor: pointer; 
+    opacity: 0.5;
+    z-index: 3;
+    padding: 10px; 
+    transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+    .close-overlay:hover {
+        opacity: 1;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .fullscreen-overlay img {
+        max-width: 80vw;
+    }
+    .close-overlay {
+        top: 30px;
+        right: 40px;
+        font-size: 32px;
+    }
+}
