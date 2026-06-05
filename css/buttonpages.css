@@ -1,9 +1,9 @@
-/* Общие стили для стрелок */
+
 .nav-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный круг/квадрат */
+    background: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
     outline: none;
@@ -13,26 +13,22 @@
     cursor: pointer;
     border-radius: 8px;
     transition: background 0.2s ease, color 0.2s ease;
-    z-index: 100; /* Чтобы были точно поверх фото */
+    z-index: 100;
 }
 
-/* Эффект при наведении */
 .nav-arrow:hover {
     background: #ffffff;
     color: #000000;
 }
 
-/* Левая стрелка */
 .prev-overlay {
     left: 20px;
 }
 
-/* Правая стрелка */
 .next-overlay {
     right: 20px;
 }
 
-/* Стили для мобилок, чтобы стрелки не перекрывали весь экран */
 @media (max-width: 768px) {
     .nav-arrow {
         font-size: 18px;

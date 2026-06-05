@@ -18,54 +18,56 @@
         </div>
     </nav>
 
-    <main class="main-content">
-        <div class="works-container">
+<main class="main-content">
+<div class="works-container">
             
-            <a href="page1.html" class="work-card">
-                <div class="card-image-wrapper" data-text="BMW E38">
-                    <img src="image/IMG_12.jpg" alt="BMW E38 Cinematic">
-                </div>
-            </a>
-
-            <a href="page2.html" class="work-card">
-                <div class="card-image-wrapper" data-text="lamborghini huracan">
-                    <img src="image/IMG_5.jpg" alt="Lamborghini Huracan">
-                </div>
-            </a>
-
-
             <a href="page4.html" class="work-card">
-                <div class="card-image-wrapper wide-card" data-text="Porsche 911 Sport Classic">
-                    <img src="image/IMG_20.jpg" alt="Porsche 911 Sport Classic">
+                <div class="card-image-wrapper wide-card">
+                <img src="image/IMG_20.jpg" alt="Porsche 911 Sport Classic">
+                </div>
+                <div class="card-meta">
+                <h3 class="card-title">Porsche 911 Sport Classic</h3>
+                <span class="card-year">2026</span>
+                <span class="apple-btn">View Project</span>
                 </div>
             </a>
 
             <a href="page5.html" class="work-card">
-                <div class="card-image-wrapper wide-card" data-text="ferrari 488 pista">
-                    <img src="image/IMG_15.jpg" alt="ferrari 488 pista">
+                <div class="card-image-wrapper wide-card">
+                <img src="image/IMG_15.jpg" alt="ferrari 488 pista">
+                </div>
+                <div class="card-meta">
+                <h3 class="card-title">Ferrari 488 Pista</h3>
+                <span class="card-year">2026</span>
+                <span class="apple-btn">View Project</span>
                 </div>
             </a>
 
-        </div>
-    </main>
+            <a href="page2.html" class="work-card">
+                <div class="card-image-wrapper">
+                <img src="image/IMG_5.jpg" alt="Lamborghini Huracan">
+                </div>
+                <div class="card-meta">
+                <h3 class="card-title">Lamborghini Huracan</h3>
+                <span class="card-year">2026</span>
+                <span class="apple-btn">View Project</span>
+                </div>
+            </a>
 
-<script>
-        
-        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-            const cards = document.querySelectorAll('.work-card');
+
+            <a href="page1.html" class="work-card">
+                <div class="card-image-wrapper">
+                <img src="image/IMG_12.jpg" alt="BMW E38 Cinematic">
+                </div>
+                <div class="card-meta">
+                <h3 class="card-title">BMW E38</h3>
+                <span class="card-year">2026</span>
+                <span class="apple-btn">View Project</span>
+                </div>
+            </a>
             
-            cards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    if (!this.classList.contains('hover-active')) {
-                        e.preventDefault();
-                        cards.forEach(c => c.classList.remove('hover-active'));
-                        this.classList.add('hover-active'); 
-                    }
-                });
-            });
-        }
-    </script>
-
+</div>    
+</main>
 
 </body>
 </html>
